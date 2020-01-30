@@ -15,4 +15,17 @@ timeout = 10
 
 try:
     WebDriverWait(browser, timeout).until(ES.visibility_of_element_located((By.XPATH,"//*[@id="search"]/div[1]/div[2]/div/span[4]/div[1]/div[10]/div/span/div/div/div[2]/div[2]/div/div[1]/div/div/div[1]/h2/a/span")))
-    
+except TimeoutException:
+    print("Oops Error Timeout")
+    browser.quit()
+
+title_element = browser.find_elements_by_xpath('')
+title = [x.text for x in title_element]
+
+'''it can also be written as
+title = []
+for x in title_elements:
+    title.append(x.text)'''
+
+print('Titles'+title)
+
