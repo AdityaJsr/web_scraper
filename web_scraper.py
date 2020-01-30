@@ -27,5 +27,11 @@ title = []
 for x in title_elements:
     title.append(x.text)'''
 
-print('Titles'+title)
+print('Title'+title)
+
+value_element = browser.find_elements_by_xpath('')
+value = [x.text for x in value_element]
+print('Value'+value)
+
+
 
