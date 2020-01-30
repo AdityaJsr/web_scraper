@@ -19,7 +19,7 @@ except TimeoutException:
     print("Oops Error Timeout")
     browser.quit()
 
-title_element = browser.find_elements_by_xpath('//*[@id="search"]/div[1]/div/div/span/div/div/div/span/div/div/div/div/div/div/div/div/div/div/div/h2')
+title_element = browser.find_elements_by_xpath('//*[@id="search"]/div/div/div/span/div/div/div/span/div/div/div/div/div/div/div/div/div/h2/a/span')
 title = [x.text for x in title_element]
 
 '''it can also be written as
@@ -29,9 +29,13 @@ for x in title_elements:
 
 print(title)
 
-value_element = browser.find_elements_by_xpath('//*[@id="search"]/div/div/div/span/div/div/div/span/div/div/div/div/div/div/div/div/div/div/div/div/div/a/span')
-value = [x.text for x in value_element]
-print(value)
 
-for title,value in zip(title, value):
-    print(title +' :' + value)
+value_element = browser.find_elements_by_xpath('//*[@id="search"]/div/div/div/span/div/div/div/span/div/div/div/div/div/div/div/div/div/div/div/a/span/span/span')
+value = [x.text for x in value_element]
+#The website was returning 2 different values of a single GPU and every alternative value was true hence line 36 fixed that issue.
+Price = [value[i] for i in range(len(value)) if i % 2 != 0] 
+print(Price)
+# print(len(value))
+
+for title,Price in zip(title, Price):
+    print(title +' :' + Price)
