@@ -27,11 +27,11 @@ title = []
 for x in title_elements:
     title.append(x.text)'''
 
-print('Title'+title)
+print(title)
 
 value_element = browser.find_elements_by_xpath('//*[@id="search"]/div/div/div/span/div/div/div/span/div/div/div/div/div/div/div/div/div/div/div/div/div/a/span')
 value = [x.text for x in value_element]
-print('Value'+value)
+print(value)
 
 for title,value in zip(title, value):
     print(title +' :' + value)
