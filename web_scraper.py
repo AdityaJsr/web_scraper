@@ -33,5 +33,10 @@ value_element = browser.find_elements_by_xpath('')
 value = [x.text for x in value_element]
 print('Value'+value)
 
+for title,value in zip(title, value):
+    print(title +' :' + value)
+
+
+
 
 
