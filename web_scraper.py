@@ -35,6 +35,7 @@ value = [x.text for x in value_element]
 #The website was returning 2 different values of a single GPU and every alternative value was true hence line 36 fixed that issue.
 Price = [value[i] for i in range(len(value)) if i % 2 != 0] 
 print(Price)
+#check whether the output is correct or not
 # print(len(value))
 
 for title,Price in zip(title, Price):
